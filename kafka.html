@@ -3,6 +3,7 @@
         category: 'output',
         color: '#FFFFFF',
         defaults: {
+            name: {value:""},
             zkquorum:{value:"", required: true},
             topics: {value:"", required: true},
             debug: {value:""}
@@ -12,15 +13,19 @@
         icon: "kafka.png",
         align: "right",
         label: function() {
-            return this.name||"kafka";
+            return this.name||"kafka-provider";
         }
     });
 </script>
 
 <script type="text/x-red" data-template-name="kafka">
     <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="kafka-provider">
+    </div>
+    <div class="form-row">
         <label for="node-input-zkquorum"><i class="icon-tag"></i>ZK Quorum</label>
-        <input type="text" id="node-input-zkquorum" placeholder="ZK Quorum">
+        <input type="text" id="node-input-zkquorum" placeholder="localhost:2181">
     </div>
 
     <div class="form-row">
@@ -53,6 +58,7 @@ Topic(s) = "topic1, topic2, topic3"
         category: 'input',
         color: '#FFFFFF',
         defaults: {
+            name:{value:""},
             zkquorum:{value:"", required: true},
             topics: {value:"", required: true},
             groupId:{value:"", required: true},
@@ -63,15 +69,19 @@ Topic(s) = "topic1, topic2, topic3"
         outputs:1,
         icon: "kafka.png",
         label: function() {
-            return this.name||"kafka";
+            return this.name||"kafka-consumer";
         }
     });
 </script>
 
 <script type="text/x-red" data-template-name="kafka in">
     <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="kafka-consumer">
+    </div>
+    <div class="form-row">
         <label for="node-input-zkquorum"><i class="icon-tag"></i>ZK Quorum</label>
-        <input type="text" id="node-input-zkquorum" placeholder="ZK Quorum">
+        <input type="text" id="node-input-zkquorum" placeholder="localhost:2181">
     </div>
 
     <div class="form-row">
